@@ -1,6 +1,8 @@
 import sys
 import cx_Oracle
 import getpass
+import pandas as pd
+
 
 instance = input('instance [prd,stg,tst,dv1,etc.]:')
 #print(instance)
@@ -15,3 +17,6 @@ print(constring)
 
 #if __name__ == "__main__":
 #   print(sys.argv[1])
+
+csv = pd.read_csv('inputs.csv')
+print(csv[:])
