@@ -5,31 +5,23 @@ import pandas as pd
 # of an excel file 
 df = pd.read_excel ("C:/Users/Lars/VimDocs/testing_xlrd.xls")
   
-  
+iter_df = pd.DataFrame() 
+data = {}
+
 # show the dataframe
 print(df)
-
 for index, row in df.iterrows():
+    data.clear()
+    data[0] = row['Name']
     if row[3] > row['Number']:
-        print(row['Name'])
+        data[1] = "Error 1" 
+        #print(data)
+        #print(row['Name'])
     #print(row['Age'], row['Number'])
+    if row['Name']=='Baker':
+        data[2] = 'Error 2'
+        print(data)
+    iter_df = iter_df.append(data, ignore_index=True)
 
-
-#print(df.Title)
-#print (Name[1])
-#print(df.loc[1])
-
-# for i in number of rows - check if column x is > y
-# print Name where Age > Number
-
-
-## Conversion to CSV steps that are not needed...yet
-# Write the dataframe object
-# into csv file
-#read_file.to_csv ("Test.csv", 
-                  #index = None,
-                  #header=True)
-    
-# read csv file and convert 
-# into a dataframe object
-#df = pd.DataFrame(pd.read_csv("Test.csv"))
+print(iter_df)
+print(data)
